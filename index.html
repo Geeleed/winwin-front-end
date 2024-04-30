@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="uploadImage" accept=".png,.jpg,.jpeg" />
+    <button onclick="upload()">Upload Image</button><br />
+    <script>
+      async function upload() {
+        const imgFile = document.getElementById("uploadImage").files[0];
+        if (!imgFile) {
+          alert("Please select an image to upload!");
+          return;
+        }
+        const formData = new FormData();
+        formData.append("file", imgFile);
+        await fetch("http://localhost:8000/db/file", {
+          method: "POST",
+          body: formData,
+        });
+      }
+    </script>
+  </body>
+</html>
