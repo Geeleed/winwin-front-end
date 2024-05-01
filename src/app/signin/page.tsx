@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import React, { EventHandler, useState } from "react";
 import api from "../api";
 import useAuth from "../useAuth";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return useAuth({ page: <Signin />, currentUrl: "/signin" });
@@ -35,25 +37,50 @@ function Signin() {
       });
   };
   return (
-    <div>
-      <h1>เข้าระบบ</h1>
-      <form onSubmit={handleSubmit} method="post">
-        <label>อีเมล์</label>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <div className=" w-screen h-screen bg-black grid grid-cols-2 place-content-center place-items-center">
+      <aside>
+        <form onSubmit={handleSubmit} className=" w-full min-w-[25rem]">
+          <div className=" flex flex-col">
+            <label className=" text-[1.2rem]">อีเมล์</label>
+            <input
+              className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="example@mail.com"
+            />
+          </div>
+          <br />
+          <div className=" flex flex-col">
+            <label className=" text-[1.2rem]">รหัสผ่าน</label>
+            <input
+              className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="**********"
+            />
+          </div>
+          <br />
+          <input
+            type="submit"
+            value="เข้าระบบ"
+            className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1"
+          />
+        </form>
         <br />
-        <label>รหัสผ่าน</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <input type="submit" value="เข้าระบบ" />
-      </form>
+        <div className=" flex flex-col justify-center items-center ">
+          <Link href="/forgot" className=" hover:underline underline-offset-4">
+            ลืมรหัสผ่าน
+          </Link>
+          <Link href="/signup" className=" hover:underline underline-offset-4">
+            สมัครสมาชิก
+          </Link>
+        </div>
+      </aside>
+      <aside>
+        <Image src="/image/cube.png" height={600} width={600} alt="" />
+      </aside>
     </div>
   );
 }

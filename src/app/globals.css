@@ -1,3 +1,37 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/font/IBMPlexSansThai-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "IBMPlexSansThai", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: white;
+  transition: all 0.5s;
+}
+
+.animate-gradient {
+  background-size: 300%;
+  -webkit-animation: animatedgradient 2s ease infinite alternate;
+  -moz-animation: animatedgradient 2s ease infinite alternate;
+  animation: animatedgradient 2s ease infinite alternate;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

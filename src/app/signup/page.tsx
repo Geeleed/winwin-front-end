@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import React, { EventHandler, useState } from "react";
 import api from "../api";
 import useAuth from "../useAuth";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return useAuth({ page: <Signup />, currentUrl: "/signup" });
@@ -50,73 +52,134 @@ function Signup() {
       })
       .catch((err) => console.error(err));
   };
+  const inputStyle =
+    " p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08] mb-1";
+  const h1Style = " col-span-2 text-[1.3rem] font-semibold mt-8 mb-1";
   return (
-    <div>
-      <h1>สมัครสมาชิก</h1>
-      <form method="post" onSubmit={handleSubmit}>
-        <label>ชื่อ</label>
-        <input
-          type="text"
-          name="firstname"
-          onChange={(e) => setFirstname(e.target.value)}
-          required
-        />
-        <br />
-        <label>นามสกุล</label>
-        <input
-          type="text"
-          name="lastname"
-          onChange={(e) => setLastname(e.target.value)}
-          required
-        />
-        <br />
-        <label>อีเมล</label>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <label>รหัสผ่าน</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <label>ยืนยันรหัสผ่าน</label>
-        <input
-          type="password"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        <br />
-        <label>คำถามเมื่อต้องเปลี่ยนหรือลืมรหัสผ่าน</label>
-        <input
-          type="text"
-          name="question"
-          onChange={(e) => setQuestion(e.target.value)}
-          required
-        />
-        <br />
-        <label>คำตอบ</label>
-        <input
-          type="text"
-          name="answer"
-          onChange={(e) => setAnswer(e.target.value)}
-          required
-        />
-        <br />
-        <label>เบอร์ติดต่อ</label>
-        <input
-          type="tel"
-          name="phone"
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
-        <br />
-        <input type="submit" value="ยืนยันการสมัคร" />
-      </form>
+    <div className=" w-screen h-screen bg-black grid grid-cols-2 place-content-center place-items-center">
+      <aside>
+        <form onSubmit={handleSubmit} className=" grid grid-cols-2 gap-x-3">
+          <h1 className={h1Style}>ข้อมูลผู้ใช้</h1>
+          <div className=" flex flex-col">
+            <label>ชื่อ</label>
+            <input
+              className={inputStyle}
+              type="text"
+              name="firstname"
+              onChange={(e) => setFirstname(e.target.value)}
+              required
+              placeholder="สุรศักดิ์"
+            />
+          </div>
+          <div className=" flex flex-col">
+            <label>นามสกุล</label>
+            <input
+              className={inputStyle}
+              type="text"
+              name="lastname"
+              onChange={(e) => setLastname(e.target.value)}
+              required
+              placeholder="แก้วโพธิ์"
+            />
+          </div>
+          <h1 className={h1Style}>อีเมล์สำหรับเข้าระบบ</h1>
+          <div className=" flex flex-col">
+            <label>อีเมล</label>
+            <input
+              className={inputStyle}
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="example@mail.com"
+            />
+          </div>
+          <div></div>
+          <div className=" flex flex-col">
+            <label>รหัสผ่าน</label>
+            <input
+              className={inputStyle}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="**********"
+            />
+          </div>
+          <div className=" flex flex-col">
+            <label>ยืนยันรหัสผ่าน</label>
+            <input
+              className={inputStyle}
+              type="password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              placeholder="**********"
+            />
+          </div>
+          <h1 className={h1Style}>ข้อมูลติดต่อผู้ใช้</h1>
+          <div className=" flex flex-col">
+            <label>เบอร์ติดต่อ</label>
+            <input
+              className={inputStyle}
+              type="tel"
+              name="phone"
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              placeholder="0921234567"
+            />
+          </div>
+          <div></div>
+          <h1 className={h1Style}>การกู้รหัสผ่าน</h1>
+          <div className=" flex flex-col col-span-2">
+            <label>คำถามเมื่อต้องเปลี่ยนหรือลืมรหัสผ่าน</label>
+            <input
+              className={inputStyle}
+              type="text"
+              name="question"
+              onChange={(e) => setQuestion(e.target.value)}
+              required
+              placeholder="สีที่ชอบอันดับ 2 คือสีอะไร?"
+            />
+          </div>
+          <div className=" flex flex-col col-span-2">
+            <label>คำตอบ</label>
+            <input
+              className={inputStyle}
+              type="text"
+              name="answer"
+              onChange={(e) => setAnswer(e.target.value)}
+              required
+              placeholder="สีน้ำเงิน"
+            />
+          </div>
+          <input
+            type="submit"
+            value="ยืนยันการสมัคร"
+            className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1 my-3 col-span-2"
+          />
+        </form>
+        <div className=" w-full flex items-center justify-center">
+          <Link href="/signin" className=" hover:underline underline-offset-4">
+            เข้าระบบ
+          </Link>
+        </div>
+      </aside>
+      <aside>
+        <Image src="/image/cube.png" height={600} width={600} alt="" />
+      </aside>
     </div>
   );
 }
+
+// const InputLayout=({children}:Readonly<{children:React.ReactNode}>)=>{
+//   return(
+//     <div className=" flex flex-col">
+//             <label className=" text-[1.2rem]">อีเมล์</label>
+//             <input
+//               className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
+//               type="email"
+//               onChange={(e) => setEmail(e.target.value)}
+//               required
+//               placeholder="example@mail.com"
+//             />
+//           </div>
+//   )
+// }
