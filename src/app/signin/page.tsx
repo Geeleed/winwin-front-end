@@ -37,11 +37,14 @@ function Signin() {
       });
   };
   return (
-    <div className=" w-screen h-screen bg-black grid grid-cols-2 place-content-center place-items-center">
+    <div className=" absolute w-full h-full bg-black grid grid-cols-1 sm:grid-cols-2 place-content-center place-items-center">
+      <aside className=" size-[17rem] sm:size-[35rem]">
+        <Image src="/image/cube.png" height={600} width={600} alt="" />
+      </aside>
       <aside>
-        <form onSubmit={handleSubmit} className=" w-full min-w-[25rem]">
+        <form onSubmit={handleSubmit} className=" min-w-[24rem] p-8 sm:p-0">
           <div className=" flex flex-col">
-            <label className=" text-[1.2rem]">อีเมล์</label>
+            <label className=" text-[1rem] sm:text-[1.2rem]">อีเมล์</label>
             <input
               className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
               type="email"
@@ -52,7 +55,7 @@ function Signin() {
           </div>
           <br />
           <div className=" flex flex-col">
-            <label className=" text-[1.2rem]">รหัสผ่าน</label>
+            <label className=" text-[1rem] sm:text-[1.2rem]">รหัสผ่าน</label>
             <input
               className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
               type="password"
@@ -68,8 +71,7 @@ function Signin() {
             className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1"
           />
         </form>
-        <br />
-        <div className=" flex flex-col justify-center items-center ">
+        <div className=" flex flex-col justify-center items-center sm:mt-5 ">
           <Link href="/forgot" className=" hover:underline underline-offset-4">
             ลืมรหัสผ่าน
           </Link>
@@ -77,9 +79,6 @@ function Signin() {
             สมัครสมาชิก
           </Link>
         </div>
-      </aside>
-      <aside>
-        <Image src="/image/cube.png" height={600} width={600} alt="" />
       </aside>
     </div>
   );

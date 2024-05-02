@@ -50,10 +50,13 @@ function Forgot() {
     " p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08] mb-1";
   const h1Style = " col-span-2 text-[1.3rem] font-semibold mt-8 mb-1";
   return (
-    <div className=" w-screen h-screen bg-black grid grid-cols-2 place-content-center place-items-center">
-      <aside>
+    <div className=" absolute w-full h-full bg-black grid grid-cols-1 sm:grid-cols-2 place-content-start sm:place-content-center place-items-center">
+      <aside className=" p-5">
         <section className=" grid grid-cols-2">
-          <form onSubmit={handleSubmit1} className="col-span-2 flex flex-col">
+          <form
+            onSubmit={handleSubmit1}
+            className="col-span-2 flex flex-col min-w-[20rem]"
+          >
             <label>อีเมล์</label>
             <input
               className={inputStyle}
@@ -65,7 +68,7 @@ function Forgot() {
             <input
               type="submit"
               value="ขอคำถามสำหรับเปลี่ยนรหัสผ่าน"
-              className=" text-[1.1rem] hover:underline underline-offset-4 cursor-pointer my-3"
+              className=" text-[1.1rem] hover:underline underline-offset-4 cursor-pointer my-3 text-[#edff08]"
             />
           </form>
         </section>
@@ -131,7 +134,7 @@ function Forgot() {
           </div>
         </section>
       </aside>
-      <aside>
+      <aside className=" hidden sm:flex size-[35rem]">
         <Image src="/image/cube.png" height={600} width={600} alt="" />
       </aside>
     </div>

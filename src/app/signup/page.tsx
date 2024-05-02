@@ -22,7 +22,6 @@ function Signup() {
   const [phone, setPhone] = useState("");
   const router = useRouter();
   const handleSubmit: EventHandler<React.FormEvent> = async (e) => {
-    // const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log(`Submitted with ${firstname} and ${lastname}`);
     const formData = new FormData();
@@ -53,10 +52,14 @@ function Signup() {
       .catch((err) => console.error(err));
   };
   const inputStyle =
-    " p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08] mb-1";
-  const h1Style = " col-span-2 text-[1.3rem] font-semibold mt-8 mb-1";
+    " p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08] mb-1 text-[0.85rem] sm:text-[1rem]";
+  const h1Style =
+    " col-span-2 font-semibold mt-3 sm:mt-8 mb-1 text-[1rem] sm:text-[1.3rem]";
   return (
-    <div className=" w-screen h-screen bg-black grid grid-cols-2 place-content-center place-items-center">
+    <div className=" absolute w-full h-full bg-black grid grid-cols-1 sm:grid-cols-2 place-content-start sm:place-content-center place-items-center p-4 text-[0.8rem] sm:text-[1rem]">
+      <aside className=" hidden sm:flex size-[35rem]">
+        <Image src="/image/cube.png" height={600} width={600} alt="" />
+      </aside>
       <aside>
         <form onSubmit={handleSubmit} className=" grid grid-cols-2 gap-x-3">
           <h1 className={h1Style}>ข้อมูลผู้ใช้</h1>
@@ -156,30 +159,12 @@ function Signup() {
             className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1 my-3 col-span-2"
           />
         </form>
-        <div className=" w-full flex items-center justify-center">
+        <div className=" w-full flex items-center justify-center text-[1rem]">
           <Link href="/signin" className=" hover:underline underline-offset-4">
             เข้าระบบ
           </Link>
         </div>
       </aside>
-      <aside>
-        <Image src="/image/cube.png" height={600} width={600} alt="" />
-      </aside>
     </div>
   );
 }
-
-// const InputLayout=({children}:Readonly<{children:React.ReactNode}>)=>{
-//   return(
-//     <div className=" flex flex-col">
-//             <label className=" text-[1.2rem]">อีเมล์</label>
-//             <input
-//               className=" p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08]"
-//               type="email"
-//               onChange={(e) => setEmail(e.target.value)}
-//               required
-//               placeholder="example@mail.com"
-//             />
-//           </div>
-//   )
-// }
