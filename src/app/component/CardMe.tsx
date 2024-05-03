@@ -132,7 +132,10 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
                   },
                 })
                   .then((res) => res.json())
-                  .then((res) => alert(res.message));
+                  .then((res) => {
+                    setItemStatus("instock");
+                    alert(res.message);
+                  });
               }}
             >
               เลิกแมตช์

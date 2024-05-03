@@ -1,3 +1,4 @@
+import Link from "next/link";
 import api from "../api";
 import { ItemData } from "./Card";
 
@@ -220,6 +221,158 @@ export const ButtonPost = ({
         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
       </svg>
       เลิกโพสต์
+    </button>
+  );
+};
+
+export const ButtonSeeOther = ({
+  itemData,
+  checkedState,
+  isGrad = false,
+}: {
+  itemData: ItemData;
+  checkedState: any;
+  isGrad: boolean;
+}) => {
+  const [checked, setChecked] = checkedState;
+  const idt = itemData;
+  return (
+    <Link
+      href={`/exchange/${idt.itemid}`}
+      className={
+        " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
+        (isGrad &&
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+      }
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="27"
+        height="27"
+        fill={isGrad ? "#000" : "currentColor"}
+        className="bi bi-box"
+        viewBox="0 0 16 16"
+      >
+        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
+      </svg>
+      ดูของ
+    </Link>
+  );
+};
+
+export const ButtonCancelExchange = ({
+  itemData,
+  checkedState,
+  isGrad = false,
+}: {
+  itemData: ItemData;
+  checkedState: any;
+  isGrad: boolean;
+}) => {
+  const [checked, setChecked] = checkedState;
+  const idt = itemData;
+  return (
+    <button
+      className={
+        " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
+        (isGrad &&
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+      }
+      onClick={async () => {
+        await fetch(api.exchange, {
+          method: "DELETE",
+          headers: {
+            authorization: "Bearer " + localStorage.token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ itemId: idt.itemid }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            setChecked("cancel");
+            alert(res.message);
+          });
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="27"
+        height="27"
+        fill={isGrad ? "#000" : "currentColor"}
+        className="bi bi-x-circle"
+        viewBox="0 0 16 16"
+      >
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+      </svg>
+      ลบ
+    </button>
+  );
+};
+
+export const ButtonMatch = ({
+  myItemId,
+  itemData,
+  checkedState,
+  isGrad = false,
+}: {
+  myItemId: string;
+  itemData: ItemData;
+  checkedState: any;
+  isGrad: boolean;
+}) => {
+  const [checked, setChecked] = checkedState;
+  const idt = itemData;
+  return (
+    <button
+      className={
+        " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-2 rounded-full bg-[#ffffff11]" +
+        (isGrad &&
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+      }
+      onClick={async () => {
+        await fetch(api.match, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Baerer " + localStorage.token,
+          },
+          body: JSON.stringify({
+            myItemId,
+            selectItemId: idt.itemid,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.isOk) setChecked("matched");
+          });
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill={isGrad ? "#000" : "currentColor"}
+        className="bi bi-arrow-down-up"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fillRule="evenodd"
+          d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"
+        />
+      </svg>
+      {/* <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="27"
+          height="27"
+          fill={isGrad ? "#000" : "currentColor"}
+          className="bi bi-x-circle"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg> */}
+      แมตช์
     </button>
   );
 };

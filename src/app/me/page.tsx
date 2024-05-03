@@ -59,13 +59,9 @@ function Me() {
       <div className=" fixed top-0 left-0 w-full h-full bg-[url('/image/cube.png')] bg-fixed bg-no-repeat bg-contain bg-center [filter:blur(20px)]"></div>
       <div className=" flex w-full justify-center h-full">
         <section className=" z-[1]">
-          {/* <div>
-            {user && `${user.firstname} ${user.lastname} ${user.email}`}
-          </div> */}
           <h1 className=" text-[1.5rem] font-bold p-3">Item ของฉัน</h1>
           <section className=" grid grid-cols-1 sm:grid-cols-3">
             {myItem.length > 0 &&
-              // myItem.map((item: any) => <CardMe props={item} key={item.id} />)}
               myItem.map((item: any) => (
                 <CardMe itemData={item} key={item.id} />
               ))}
@@ -76,7 +72,6 @@ function Me() {
             ที่อยู่สำหรับรับพัสดุ
           </h1>
           <section>
-            {/* <p>{address && address}</p> */}
             <textarea
               className=" bg-[#ffffff11] border-b-2 border-white w-full outline-none focus:border-[#edff08] p-3 my-2"
               value={address}
