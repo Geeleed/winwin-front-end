@@ -1,13 +1,18 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import api from "../api";
 import useAuth from "../useAuth";
-import Image from "next/image";
+import Navbar from "../component/Navbar";
+import Load from "../component/Load";
+import CardMarket from "../component/CardMarket";
 
 export default function Page() {
-  return useAuth({ page: <Market />, currentUrl: "/market" });
+  return useAuth({
+    page: <Market />,
+    currentUrl: "/market",
+    loading: <Load />,
+  });
 }
 function Market() {
   const [itemData, setItemData] = useState<any>([]);
@@ -25,96 +30,19 @@ function Market() {
     loadItemData();
   }, []);
   return (
-    <div>
-      <h1>Market</h1>
-      <section>
-        {itemData.length > 0 &&
-          itemData.map((item: any) => (
-            <CardMarket key={item.id} itemData={item} />
-          ))}
-      </section>
-    </div>
-  );
-}
-
-interface ItemData {
-  id: String;
-  itemid: String;
-  ownerid: String;
-  title: String;
-  description: String;
-  imageurls: String;
-  weight: String;
-  height: String;
-  width: String;
-  length: String;
-  postat: String;
-  expireat: String;
-  sending: String;
-  status: String;
-  extend: String;
-  createdat: String;
-}
-const CardMarket = ({ itemData }: { itemData: ItemData }) => {
-  const idt = itemData;
-  const src = idt.imageurls
-    .slice(1, -1)
-    .split(",")
-    .map((i: string) => i.slice(1, -1));
-  return (
-    <div>
-      <h1>{idt.title}</h1>
-      <div>
-        {src.map((i: string) => (
-          <Image
-            src={i}
-            width={300}
-            height={300}
-            alt={i}
-            key={i}
-            quality={50}
-          />
-        ))}
+    <div className=" bg-black">
+      <Navbar />
+      <div className=" fixed top-0 left-0 w-full h-full bg-[url('/image/cube.png')] bg-fixed bg-no-repeat bg-contain bg-center [filter:blur(20px)]"></div>
+      <div className=" flex w-full justify-center h-full">
+        <section className=" grid grid-cols-1 sm:grid-cols-3 w-full sm:w-fit">
+          {itemData.length > 0 &&
+            itemData.map((item: any) => (
+              <div className=" place-self-center">
+                <CardMarket key={item.id} itemData={item} />
+              </div>
+            ))}
+        </section>
       </div>
-      <p>รายละเอียด {idt.description}</p>
-      <p>
-        น้ำหนัก {idt.weight}
-        ความสูง {idt.height}
-        ความกว้าง {idt.width}
-        ความยาว {idt.length}
-      </p>
-      <button
-        onClick={async () => {
-          await fetch(api.wish, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: "Baerer " + localStorage.token,
-            },
-            body: JSON.stringify({
-              itemId: idt.itemid,
-            }),
-          });
-        }}
-      >
-        บันทึก
-      </button>
-      <button
-        onClick={async () => {
-          await fetch(api.exchange, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: "Baerer " + localStorage.token,
-            },
-            body: JSON.stringify({
-              itemId: idt.itemid,
-            }),
-          });
-        }}
-      >
-        ขอแลก
-      </button>
     </div>
   );
-};
+}

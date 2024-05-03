@@ -5,9 +5,11 @@ import useAuth from "../useAuth";
 import api from "../api";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../component/Navbar";
+import Load from "../component/Load";
 
 export default function Page() {
-  return useAuth({ page: <Me />, currentUrl: "/me" });
+  return useAuth({ page: <Me />, currentUrl: "/me", loading: <Load /> });
 }
 function Me() {
   const [user, setUser] = useState<any>();
@@ -51,7 +53,8 @@ function Me() {
     loadAddress();
   }, []);
   return (
-    <div>
+    <div className=" bg-black">
+      <Navbar />
       <h1>{user && `${user.firstname} ${user.lastname} ${user.email}`}</h1>
       <h2>Item ของฉัน</h2>
       <section>

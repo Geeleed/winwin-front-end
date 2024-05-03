@@ -9,12 +9,16 @@
   font-style: normal;
 }
 
+body {
+  background-color: black;
+}
+
 * {
   font-family: "IBMPlexSansThai", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: white;
-  transition: all 0.5s;
+  transition: all 0.1s;
 }
 
 .animate-gradient {
@@ -34,4 +38,17 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff88;
+  cursor: grab;
+}
+
+.gradient-green-to-blue {
+  background-image: linear-gradient(to right, #34d399, #4f46e5);
 }

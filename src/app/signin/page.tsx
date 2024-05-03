@@ -6,9 +6,14 @@ import api from "../api";
 import useAuth from "../useAuth";
 import Image from "next/image";
 import Link from "next/link";
+import Load from "../component/Load";
 
 export default function Page() {
-  return useAuth({ page: <Signin />, currentUrl: "/signin" });
+  return useAuth({
+    page: <Signin />,
+    currentUrl: "/signin",
+    loading: <Load />,
+  });
 }
 
 function Signin() {
@@ -38,6 +43,9 @@ function Signin() {
   };
   return (
     <div className=" absolute w-full h-full bg-black grid grid-cols-1 sm:grid-cols-2 place-content-center place-items-center">
+      <h1 className=" absolute top-0 left-0 hidden sm:inline-block sm:p-5 bg-gradient-to-r from-[#a8fe38] to-[#edff08] text-transparent bg-clip-text font-extrabold text-[2rem] animate-gradient leading-none">
+        WINWIN
+      </h1>
       <aside className=" size-[17rem] sm:size-[35rem]">
         <Image src="/image/cube.png" height={600} width={600} alt="" />
       </aside>

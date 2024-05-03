@@ -5,11 +5,13 @@ import api from "./api";
 export default function useAuth({
   page,
   currentUrl,
+  loading,
 }: {
   page: React.JSX.Element;
   currentUrl: string;
+  loading: React.JSX.Element;
 }): React.JSX.Element | null {
-  const [Page, setPage] = useState<null | React.JSX.Element>(null);
+  const [Page, setPage] = useState<null | React.JSX.Element>(loading);
   const router = useRouter();
   // กำหนด path ที่ยังไม่ signin
   const out = ["/", "/signin", "/signup", "/forgot"];

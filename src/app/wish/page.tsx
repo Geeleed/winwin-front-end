@@ -4,9 +4,11 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import useAuth from "../useAuth";
 import api from "../api";
+import Navbar from "../component/Navbar";
+import Load from "../component/Load";
 
 export default function Page() {
-  return useAuth({ page: <Wish />, currentUrl: "/market" });
+  return useAuth({ page: <Wish />, currentUrl: "/market", loading: <Load /> });
 }
 function Wish() {
   const [itemData, setItemData] = useState<any>([]);
@@ -24,7 +26,8 @@ function Wish() {
     loadItemData();
   }, []);
   return (
-    <div>
+    <div className=" bg-black">
+      <Navbar />
       <h1>รายการไอเท่มที่อยากได้</h1>
       <section>
         {itemData.length > 0 &&

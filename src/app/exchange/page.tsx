@@ -4,9 +4,15 @@ import useAuth from "../useAuth";
 import api from "../api";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../component/Navbar";
+import Load from "../component/Load";
 
 export default function Page() {
-  return useAuth({ page: <Exchange />, currentUrl: "/exchange" });
+  return useAuth({
+    page: <Exchange />,
+    currentUrl: "/exchange",
+    loading: <Load />,
+  });
 }
 
 function Exchange() {
@@ -35,7 +41,8 @@ function Exchange() {
     loadWishItemExchange();
   }, []);
   return (
-    <div>
+    <div className=" bg-black">
+      <Navbar />
       <h1>การแลกเปลี่ยน</h1>
       <section>
         <h2>คนอื่นมาขอแลก</h2>

@@ -2,9 +2,15 @@
 import React, { useState } from "react";
 import useAuth from "../useAuth";
 import api from "../api";
+import Navbar from "../component/Navbar";
+import Load from "../component/Load";
 
 export default function Page() {
-  return useAuth({ page: <Upload />, currentUrl: "/upload" });
+  return useAuth({
+    page: <Upload />,
+    currentUrl: "/upload",
+    loading: <Load />,
+  });
 }
 
 function Upload() {
@@ -39,7 +45,8 @@ function Upload() {
       .then((res) => console.log(res));
   };
   return (
-    <div>
+    <div className=" bg-black">
+      <Navbar />
       <h1>อัปโหลด item</h1>
       <form onSubmit={handleSubmit}>
         <label>เลือกรูปภาพ ไม่เกิน 3 ภาพ</label>
