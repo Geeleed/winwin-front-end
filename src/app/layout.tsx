@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +38,7 @@ export default function RootLayout({
           </button>
         </div> */}
         {children}
+        <div className="h-[5rem]"></div>
       </body>
     </html>
   );
