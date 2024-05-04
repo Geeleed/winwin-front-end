@@ -35,7 +35,8 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
     <div
       className={
         " relative w-[24rem] aspect-[3/4] bg-[#ffffff11] rounded-[1rem] m-1 overflow-hidden shadow-[0px_0px_1px_0px_#ffffff]" +
-        (itemStatus === "deleted" && " hidden")
+        (itemStatus === "deleted" && " hidden") +
+        (itemStatus === "matched" && " border-2 border-[#a8fe38] ")
       }
     >
       <div className="flex h-3/4 aspect-square overflow-x-auto">
@@ -90,35 +91,41 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
         <div className=" col-span-3 row-span-4 flex flex-col justify-between">
           <div>
             <h1 className=" text-[1.2rem] font-semibold">{idt.title}</h1>
-            <div className=" text-[0.8rem] h-full max-h-full overflow-y-auto leading-snug">
+            <div className=" text-[0.8rem] h-[3rem] overflow-y-auto leading-snug break-words">
               {itemStatus === "matched" ? (
                 <div>
                   <div>ที่อยู่สำหรับส่งพัสดุ</div>
-                  <address>{address}</address>
+                  <address className=" rounded-md p-1">
+                    {/* <address className=" bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black rounded-md p-1"> */}
+                    {address}
+                  </address>
                   {/* <label>เลขพัสดุ</label>
           <input type="text" />
           <button>ส่งเลขพัสดุให้คู่แมตช์รู้</button> */}
-                  <Link href={`/me/${idt.itemid}`}>ดูข้อมูลไอเท่มคู่แมตช์</Link>
                 </div>
               ) : (
-                idt.description
+                <div>{idt.description}</div>
               )}
             </div>
           </div>
-          <div className=" text-[0.6rem] flex gap-2">
-            <p className=" leading-none text-[#ffffffaa]">
-              หนัก {idt.weight} kg
-            </p>
-            <p className=" leading-none text-[#ffffffaa]">
-              กว้าง {idt.width} cm
-            </p>
-            <p className=" leading-none text-[#ffffffaa]">
-              ยาว {idt.length} cm
-            </p>
-            <p className=" leading-none text-[#ffffffaa]">
-              สูง {idt.height} cm
-            </p>
-          </div>
+          {itemStatus === "matched" ? (
+            <Link href={`/me/${idt.itemid}`}>ดูข้อมูลไอเท่มคู่แมตช์</Link>
+          ) : (
+            <div className=" text-[0.6rem] flex gap-2">
+              <p className=" leading-none text-[#ffffffaa]">
+                หนัก {idt.weight} kg
+              </p>
+              <p className=" leading-none text-[#ffffffaa]">
+                กว้าง {idt.width} cm
+              </p>
+              <p className=" leading-none text-[#ffffffaa]">
+                ยาว {idt.length} cm
+              </p>
+              <p className=" leading-none text-[#ffffffaa]">
+                สูง {idt.height} cm
+              </p>
+            </div>
+          )}
         </div>
         <div className=" col-span-1 row-span-4 flex flex-col gap-1 text-[0.8rem] justify-end items-center">
           {itemStatus === "matched" && (
@@ -141,7 +148,7 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
               เลิกแมตช์
             </button>
           )}
-          {itemStatus !== "hidden" && (
+          {itemStatus !== "hidden" && itemStatus !== "matched" && (
             <button
               onClick={async () => {
                 await fetch(api.hidden, {
@@ -209,7 +216,7 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
           )}
           {(itemStatus === "instock" || itemStatus === "hidden") && (
             <button
-              className=" bg-gradient-to-r from-[#a8fe38] to-[#edff08] text-black w-full rounded-full py-2"
+              className=" bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black w-full rounded-full py-2"
               onClick={async () => {
                 await fetch(api.posting, {
                   method: "PUT",

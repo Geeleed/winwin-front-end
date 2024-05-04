@@ -37,7 +37,7 @@ export const ButtonWish = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.wish, {
@@ -90,7 +90,7 @@ export const ButtonCancelWish = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.wish, {
@@ -141,7 +141,7 @@ export const ButtonExchange = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.exchange, {
@@ -194,7 +194,7 @@ export const ButtonPost = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.instock, {
@@ -242,7 +242,7 @@ export const ButtonSeeOther = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
     >
       <svg
@@ -276,7 +276,7 @@ export const ButtonCancelExchange = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-1 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.exchange, {
@@ -328,7 +328,7 @@ export const ButtonMatch = ({
       className={
         " w-full flex items-center gap-2 px-2 hover:scale-[1.05] cursor-pointer active:scale-95 p-2 rounded-full bg-[#ffffff11]" +
         (isGrad &&
-          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08]")
+          " text-black font-bold bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient")
       }
       onClick={async () => {
         await fetch(api.match, {

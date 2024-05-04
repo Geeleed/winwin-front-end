@@ -4,6 +4,7 @@ import useAuth from "../useAuth";
 import api from "../api";
 import Navbar from "../component/Navbar";
 import Load from "../component/Load";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   return useAuth({
@@ -14,6 +15,7 @@ export default function Page() {
 }
 
 function Upload() {
+  const router = useRouter();
   const [files, setFiles] = useState<any>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -42,7 +44,12 @@ function Upload() {
       body: formData,
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.isOk) {
+          alert(res.message);
+          router.push("/me");
+        }
+      });
   };
   const inputStyle =
     " p-2 text-[1.2rem] bg-[#ffffff11] border-b-2 border-white outline-none focus:border-[#edff08] focus:text-[#edff08] mb-1 text-[0.85rem] sm:text-[1rem] w-full";
@@ -90,7 +97,7 @@ function Upload() {
             />
             <br />
             <div className=" grid grid-cols-[1fr_2fr] gap-3 place-items-center ">
-              <label htmlFor="weight">น้ำหนัก (kg) </label>
+              <label>น้ำหนัก (kg) </label>
               <input
                 className={inputStyle}
                 type="number"

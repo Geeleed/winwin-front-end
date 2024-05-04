@@ -90,7 +90,7 @@ export default function Card({
         <div className=" col-span-3 row-span-4 flex flex-col justify-between">
           <div>
             <h1 className=" text-[1.2rem] font-semibold">{idt.title}</h1>
-            <p className=" text-[0.8rem] h-full max-h-full overflow-y-auto leading-snug">
+            <p className=" text-[0.8rem] h-[3rem] overflow-y-auto leading-snug">
               {idt.description}
             </p>
           </div>

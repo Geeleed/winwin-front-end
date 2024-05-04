@@ -49,7 +49,7 @@ function Exchange({ itemid }: any) {
           </section>
         </section>
       </div>
-      <Link href="/exchange">กลับ</Link>
+      {/* <Link href="/exchange">กลับ</Link> */}
     </div>
   );
 }

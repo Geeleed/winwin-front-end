@@ -34,10 +34,13 @@ export default function Load() {
       answer: answer,
     };
   }
+  const [mathProblem, setMathProblem] = React.useState(
+    generateMathProblem().question
+  );
   return (
     <div className=" bg-black text-white flex justify-center items-center absolute w-full h-full">
       <div className=" animate-pulse text-[2rem] text-[#edff08]">
-        {`${generateMathProblem().question} = ? `}
+        {`${mathProblem} = ? `}
       </div>
     </div>
   );

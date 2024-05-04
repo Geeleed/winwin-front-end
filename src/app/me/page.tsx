@@ -80,7 +80,7 @@ function Me() {
             />
             <br />
             <button
-              className=" bg-gradient-to-tr from-[#a8fe38] to-[#edff08] text-black font-bold rounded-full py-2 px-5"
+              className=" bg-gradient-to-tr from-[#a8fe38] to-[#edff08] animate-gradient text-black font-bold rounded-full py-2 px-5"
               onClick={async () => {
                 await fetch(api.address, {
                   method: "PUT",
