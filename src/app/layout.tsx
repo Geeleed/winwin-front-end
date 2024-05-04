@@ -1,5 +1,3 @@
-// "use client";
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -19,24 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <div className=" flex gap-5">
-          <Link href="/signin"> หน้าเข้าระบบ </Link>
-          <Link href="/signup"> หน้าสมัครสมาชิก </Link>
-          <Link href="/forgot"> เปลี่ยนรหัสผ่าน </Link>
-          <Link href="/upload"> อัปโหลด </Link>
-          <Link href="/market"> ตลาด </Link>
-          <Link href="/me"> หน้าหลัก </Link>
-          <Link href="/wish"> รายการที่อยากได้ </Link>
-          <Link href="/exchange"> แลกเปลี่ยน </Link>
-          <button
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location.reload();
-            }}
-          >
-            ออกจากระบบ
-          </button>
-        </div> */}
         {children}
         <div className="h-[5rem]"></div>
       </body>

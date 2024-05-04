@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Shop } from "@/app/component/Icons";
 export default function Root() {
   return (
     <div className=" bg-black absolute h-full w-full p-14 sm:p-0 grid sm:[grid-template-areas:'._._img_img''._._img_img''head_head_img_img''des_des_img_img''btn_._img_img''._._img_img''._._img_img'] sm:grid-cols-4 ">

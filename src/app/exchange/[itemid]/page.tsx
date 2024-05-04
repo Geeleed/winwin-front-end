@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import useAuth from "@/app/useAuth";
 import api from "@/app/api";
-import Link from "next/link";
 import Load from "@/app/component/Load";
 import CardExItemId from "@/app/component/CardExItemId";
 import Navbar from "@/app/component/Navbar";
@@ -49,56 +48,6 @@ function Exchange({ itemid }: any) {
           </section>
         </section>
       </div>
-      {/* <Link href="/exchange">กลับ</Link> */}
     </div>
   );
 }
-
-const Card = ({ itemData, myItemId }: any) => {
-  const idt = itemData;
-  const src = idt.imageurls
-    .slice(1, -1)
-    .split(",")
-    .map((i: string) => i.slice(1, -1));
-  return (
-    <div>
-      <h1>{idt.title}</h1>
-      <div>
-        {src.map((i: string) => (
-          <Image
-            src={i}
-            width={300}
-            height={300}
-            alt={i}
-            key={i}
-            quality={50}
-          />
-        ))}
-      </div>
-      <p>รายละเอียด {idt.description}</p>
-      <p>
-        น้ำหนัก {idt.weight}
-        ความสูง {idt.height}
-        ความกว้าง {idt.width}
-        ความยาว {idt.length}
-      </p>
-      <button
-        onClick={async () => {
-          await fetch(api.match, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: "Baerer " + localStorage.token,
-            },
-            body: JSON.stringify({
-              myItemId,
-              selectItemId: idt.itemid,
-            }),
-          });
-        }}
-      >
-        ยืนยันแลกเปลี่ยนไอเท่มนี้
-      </button>
-    </div>
-  );
-};

@@ -2,24 +2,6 @@ import Link from "next/link";
 import api from "../api";
 import { ItemData } from "./Card";
 
-// export interface ItemData {
-//   id: String;
-//   itemid: String;
-//   ownerid: String;
-//   title: String;
-//   description: String;
-//   imageurls: String;
-//   weight: String;
-//   height: String;
-//   width: String;
-//   length: String;
-//   postat: String;
-//   expireat: String;
-//   sending: String;
-//   status: String;
-//   extend: String;
-//   createdat: String;
-// }
 export const ButtonWish = ({
   itemData,
   checkedState,
@@ -361,17 +343,6 @@ export const ButtonMatch = ({
           d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"
         />
       </svg>
-      {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="27"
-          height="27"
-          fill={isGrad ? "#000" : "currentColor"}
-          className="bi bi-x-circle"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-        </svg> */}
       แมตช์
     </button>
   );

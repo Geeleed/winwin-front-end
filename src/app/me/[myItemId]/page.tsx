@@ -5,10 +5,6 @@ import useAuth from "@/app/useAuth";
 import api from "@/app/api";
 import Link from "next/link";
 import Load from "@/app/component/Load";
-import CardExToMe from "@/app/component/CardExToMe";
-import CardMe from "@/app/component/CardMe";
-import Card from "@/app/component/Card";
-import CardMarket from "@/app/component/CardMarket";
 import CardOtherIsMatched from "@/app/component/CardOtherIsMatched";
 import Navbar from "@/app/component/Navbar";
 
@@ -47,8 +43,6 @@ function MyItemId({ myItemId }: { myItemId: string }) {
           <div className=" sm:flex">
             <div>
               <h2 className=" px-5 py-3 text-[1.1rem]">ไอเท่มของคู่แมตช์</h2>
-              {/* {matchItem && <CardMatchItem itemData={matchItem} />} */}
-              {/* {matchItem && <CardOtherIsMatched itemData={matchItem} />} */}
               {matchItem && <CardOtherIsMatched itemData={matchItem} />}
             </div>
             <div>
@@ -62,106 +56,3 @@ function MyItemId({ myItemId }: { myItemId: string }) {
     </div>
   );
 }
-
-const CardMyItem = ({ itemData }: any) => {
-  const [address, setAddress] = useState("");
-
-  const idt = itemData;
-  const src = idt.imageurls
-    .slice(1, -1)
-    .split(",")
-    .map((i: string) => i.slice(1, -1));
-  const loadAddress = async () => {
-    await fetch(api.matchedAddress + "/" + idt.itemid, {
-      headers: { authorization: "Bearer " + localStorage.token },
-    })
-      .then((res) => res.json())
-      .then((res) => setAddress(res.data.address));
-  };
-  useEffect(() => {
-    idt.status === "matched" && loadAddress();
-  }, []);
-  return (
-    <div>
-      <h1>{idt.title}</h1>
-      <p>{idt.itemid}</p>
-      <div>
-        {src.map((i: string) => (
-          <Image
-            src={i}
-            width={300}
-            height={300}
-            alt={i}
-            key={i}
-            quality={50}
-          />
-        ))}
-      </div>
-      <p>รายละเอียด {idt.description}</p>
-      <p>
-        น้ำหนัก {idt.weight}
-        ความสูง {idt.height}
-        ความกว้าง {idt.width}
-        ความยาว {idt.length}
-      </p>
-      {idt.status === "matched" && (
-        <div>
-          <p>ที่อยู่สำหรับส่งพัสดุ</p>
-          <address>{address}</address>
-          {/* <label>เลขพัสดุ</label>
-          <input type="text" />
-          <button>ส่งเลขพัสดุให้คู่แมตช์รู้</button> */}
-          <Link href="/me">กลับ</Link>
-        </div>
-      )}
-      <button
-        onClick={async () => {
-          await fetch(api.match + "/" + idt.itemid, {
-            method: "DELETE",
-            headers: {
-              authorization: "Bearer " + localStorage.token,
-              "Content-Type": "application/json",
-            },
-          })
-            .then((res) => res.json())
-            .then((res) => alert(res.message));
-        }}
-      >
-        ยกเลิกการแมตช์
-      </button>
-    </div>
-  );
-};
-const CardMatchItem = ({ itemData }: any) => {
-  const idt = itemData;
-  const src = idt.imageurls
-    .slice(1, -1)
-    .split(",")
-    .map((i: string) => i.slice(1, -1));
-
-  return (
-    <div>
-      <h1>{idt.title}</h1>
-      <p>{idt.itemid}</p>
-      <div>
-        {src.map((i: string) => (
-          <Image
-            src={i}
-            width={300}
-            height={300}
-            alt={i}
-            key={i}
-            quality={50}
-          />
-        ))}
-      </div>
-      <p>รายละเอียด {idt.description}</p>
-      <p>
-        น้ำหนัก {idt.weight}
-        ความสูง {idt.height}
-        ความกว้าง {idt.width}
-        ความยาว {idt.length}
-      </p>
-    </div>
-  );
-};

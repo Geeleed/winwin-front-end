@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
 
 export interface ItemData {
   id: String;
@@ -28,7 +27,6 @@ export default function Card({
   button: JSX.Element[];
   checkedState: any;
 }) {
-  //   const [checked, setChecked] = useState("");
   const [checked, setChecked] = checkedState;
   const idt = itemData;
   const duration = 1440 * 60 * 1000; //ms

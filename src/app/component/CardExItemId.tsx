@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ButtonCancelExchange, ButtonMatch } from "./Buttons";
-import Card, { ItemData } from "./Card";
+import { ButtonMatch } from "./Buttons";
+import { ItemData } from "./Card";
 import Image from "next/image";
 export default function CardExItemId({
   myItemId,
@@ -9,8 +9,6 @@ export default function CardExItemId({
   myItemId: string;
   itemData: ItemData;
 }) {
-  // const [checked, setChecked] = useState("");
-  //   const [checked, setChecked] = checkedState;
   const checkedState = useState("");
   const idt = itemData;
   const duration = 1440 * 60 * 1000; //ms

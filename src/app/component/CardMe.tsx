@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card, { ItemData } from "./Card";
-import { ButtonPost } from "./Buttons";
+import { ItemData } from "./Card";
 import Image from "next/image";
 import api from "../api";
 import Link from "next/link";
@@ -25,12 +24,6 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
   useEffect(() => {
     itemStatus === "matched" && loadAddress();
   }, []);
-  //   useEffect(() => {
-  //     {itemStatus === "posting" && ("กำลังโพสต์")}
-  //     {itemStatus === "hidden" && ("ซ่อนจากระบบ")}
-  //     {itemStatus === "matched" && ("แมตช์แล้ว กรุณานำส่งพัสดุของท่าน")}
-  //     {itemStatus === "instock" && ("อยู่ในสต็อก")}
-  //   }, [itemStatus]);
   return (
     <div
       className={
@@ -95,13 +88,7 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
               {itemStatus === "matched" ? (
                 <div>
                   <div>ที่อยู่สำหรับส่งพัสดุ</div>
-                  <address className=" rounded-md p-1">
-                    {/* <address className=" bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black rounded-md p-1"> */}
-                    {address}
-                  </address>
-                  {/* <label>เลขพัสดุ</label>
-          <input type="text" />
-          <button>ส่งเลขพัสดุให้คู่แมตช์รู้</button> */}
+                  <address className=" rounded-md p-1">{address}</address>
                 </div>
               ) : (
                 <div>{idt.description}</div>

@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import useAuth from "@/app/useAuth";
 import api from "@/app/api";
-import Link from "next/link";
 import Load from "@/app/component/Load";
 import Navbar from "@/app/component/Navbar";
 import { useRouter } from "next/navigation";
@@ -17,7 +15,6 @@ export default function Page({ params }: { params: { myItemId: string } }) {
 }
 
 function EditItemData({ myItemId }: { myItemId: string }) {
-  // const [files, setFiles] = useState<any>(null);
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,8 +26,6 @@ function EditItemData({ myItemId }: { myItemId: string }) {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const formData = new FormData();
-    // files &&
-    //   Array.from(files).map((item: any) => formData.append("files", item));
     formData.append("title", title);
     formData.append("description", description);
     formData.append("weight", weight);
@@ -87,19 +82,6 @@ function EditItemData({ myItemId }: { myItemId: string }) {
           <h1>แก้ไขข้อมูล item</h1>
           <br />
           <form onSubmit={handleSubmit}>
-            {/* <label>เลือกรูปภาพ ไม่เกิน 3 ภาพ</label>
-        <input
-          value={files}
-          type="file"
-          onChange={(e) => {
-            setFiles(e.target.files);
-            console.log(e.target.files);
-          }}
-          multiple
-          required
-          accept="image/*"
-        />
-        <br /> */}
             <div className=" grid grid-cols-[1fr_2fr] place-items-center">
               <label>ชื่อ item</label>
               <input

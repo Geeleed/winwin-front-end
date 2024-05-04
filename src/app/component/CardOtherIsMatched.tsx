@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ButtonExchange, ButtonWish } from "./Buttons";
 import Card, { ItemData } from "./Card";
 
 export default function CardOtherIsMatched({

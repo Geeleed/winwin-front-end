@@ -6,7 +6,6 @@ import useAuth from "../useAuth";
 import Navbar from "../component/Navbar";
 import Load from "../component/Load";
 import CardMarket from "../component/CardMarket";
-import NavbarM from "../component/NavbarM";
 
 export default function Page() {
   return useAuth({
@@ -33,7 +32,6 @@ function Market() {
   return (
     <div className=" bg-black">
       <Navbar />
-      {/* <NavbarM /> */}
       <div className=" fixed top-0 left-0 w-full h-full bg-[url('/image/cube.png')] bg-fixed bg-no-repeat bg-contain bg-center [filter:blur(20px)]"></div>
       <div className=" flex w-full justify-center h-full">
         <section className=" grid grid-cols-1 sm:grid-cols-3 w-full sm:w-fit">

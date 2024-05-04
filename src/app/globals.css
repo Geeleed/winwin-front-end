@@ -48,7 +48,3 @@ body {
   background-color: #ffffff88;
   cursor: grab;
 }
-
-.gradient-green-to-blue {
-  background-image: linear-gradient(to right, #34d399, #4f46e5);
-}
