@@ -10,6 +10,7 @@ export default function CardMeEx({ itemData }: { itemData: ItemData }) {
       checkedState={checkedState}
       button={[
         <ButtonCancelExchange
+          key={1}
           itemData={itemData}
           checkedState={checkedState}
           isGrad={true}

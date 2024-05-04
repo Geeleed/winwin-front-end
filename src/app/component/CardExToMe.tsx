@@ -10,6 +10,7 @@ export default function CardExToMe({ itemData }: { itemData: ItemData }) {
       checkedState={checkedState}
       button={[
         <ButtonSeeOther
+          key={1}
           itemData={itemData}
           checkedState={checkedState}
           isGrad={true}

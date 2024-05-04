@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import useAuth from "@/app/useAuth";
 import api from "@/app/api";
-import Link from "next/link";
 import Load from "@/app/component/Load";
 import CardOtherIsMatched from "@/app/component/CardOtherIsMatched";
 import Navbar from "@/app/component/Navbar";

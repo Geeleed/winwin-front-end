@@ -37,8 +37,8 @@ function Market() {
         <section className=" grid grid-cols-1 sm:grid-cols-3 w-full sm:w-fit">
           {itemData.length > 0 &&
             itemData.map((item: any) => (
-              <div className=" place-self-center">
-                <CardMarket key={item.id} itemData={item} />
+              <div key={item.id} className=" place-self-center">
+                <CardMarket itemData={item} />
               </div>
             ))}
         </section>

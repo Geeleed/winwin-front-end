@@ -10,11 +10,13 @@ export default function CardWish({ itemData }: { itemData: ItemData }) {
       checkedState={checkedState}
       button={[
         <ButtonCancelWish
+          key={1}
           itemData={itemData}
           checkedState={checkedState}
           isGrad={false}
         />,
         <ButtonExchange
+          key={2}
           itemData={itemData}
           checkedState={checkedState}
           isGrad={true}
