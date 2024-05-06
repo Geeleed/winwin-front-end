@@ -31,11 +31,13 @@ function Signin() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.token);
-      })
-      .then((res) => {
-        router.push("/market");
+        if (res.isOk) {
+          localStorage.setItem("token", res.token);
+          router.push("/market");
+        } else {
+          alert(res.message);
+          return;
+        }
       })
       .catch((err) => {
         console.log(err);

@@ -24,9 +24,19 @@ const nextConfig = {
     },
   },
   images: {
-    domains: [
-      "geeleedwinwin.s3.amazonaws.com",
-      "geeleedwinwin.s3.ap-southeast-2.amazonaws.com",
+    // domains: [
+    //   "geeleedwinwin.s3.amazonaws.com",
+    //   "geeleedwinwin.s3.ap-southeast-2.amazonaws.com",
+    // ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "geeleedwinwin.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "geeleedwinwin.s3.ap-southeast-2.amazonaws.com",
+      },
     ],
   },
 };
