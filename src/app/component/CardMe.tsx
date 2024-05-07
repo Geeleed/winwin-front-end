@@ -42,6 +42,7 @@ export default function CardMe({ itemData }: { itemData: ItemData }) {
             key={i}
             quality={50}
             className=" flex-none w-full"
+            loading="lazy"
           />
         ))}
       </div>

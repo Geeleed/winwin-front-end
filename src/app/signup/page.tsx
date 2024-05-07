@@ -69,7 +69,13 @@ function Signup() {
         WINWIN
       </Link>
       <aside className=" hidden sm:flex size-[35rem]">
-        <Image src="/image/cube.png" height={600} width={600} alt="" />
+        <Image
+          src="/image/cube.png"
+          height={600}
+          width={600}
+          alt=""
+          loading="lazy"
+        />
       </aside>
       <aside>
         <form onSubmit={handleSubmit} className=" grid grid-cols-2 gap-x-3">

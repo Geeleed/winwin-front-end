@@ -146,7 +146,13 @@ function Forgot() {
         </section>
       </aside>
       <aside className=" hidden sm:flex size-[35rem]">
-        <Image src="/image/cube.png" height={600} width={600} alt="" />
+        <Image
+          src="/image/cube.png"
+          height={600}
+          width={600}
+          alt=""
+          loading="lazy"
+        />
       </aside>
     </div>
   );

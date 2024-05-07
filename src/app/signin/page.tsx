@@ -52,7 +52,13 @@ function Signin() {
         WINWIN
       </Link>
       <aside className=" size-[17rem] sm:size-[35rem]">
-        <Image src="/image/cube.png" height={600} width={600} alt="" />
+        <Image
+          src="/image/cube.png"
+          height={600}
+          width={600}
+          alt=""
+          loading="lazy"
+        />
       </aside>
       <aside>
         <form onSubmit={handleSubmit} className=" min-w-[24rem] p-8 sm:p-0">

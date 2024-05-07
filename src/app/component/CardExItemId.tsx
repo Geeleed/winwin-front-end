@@ -34,6 +34,7 @@ export default function CardExItemId({
             key={i}
             quality={50}
             className=" flex-none w-full"
+            loading="lazy"
           />
         ))}
       </div>

@@ -52,6 +52,7 @@ export default function Card({
             key={i}
             quality={50}
             className=" flex-none w-full"
+            loading="lazy"
           />
         ))}
       </div>
