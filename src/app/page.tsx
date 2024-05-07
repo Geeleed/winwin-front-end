@@ -13,18 +13,18 @@ export default function Root() {
           className=" rounded-full drop-shadow-[20px_20px_100px_#a8fe3888,-20px_-20px_100px_#edff0888] w-[15rem] sm:w-1/2 aspect-square"
         />
       </div>
-      <h1 className=" sm:[grid-area:head] sm:place-content-end text-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] inline-block text-transparent bg-clip-text font-extrabold text-[3rem] sm:text-[10rem] animate-gradient leading-none">
+      <h1 className=" portrait:lg:translate-x-20 sm:[grid-area:head] sm:place-content-end text-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] inline-block text-transparent bg-clip-text font-extrabold text-[3rem] sm:text-[10rem] lg:text-[5rem] animate-gradient leading-none">
         WINWIN
       </h1>
-      <div className=" sm:pl-40 sm:[grid-area:btn] sm:w-[30rem] sm:h-fit my-5 flex gap-5 flex-wrap w-full">
+      <div className=" sm:pl-40 sm:[grid-area:btn] sm:w-[30rem] sm:h-fit my-5 flex flex-wrap w-full">
         <Link
           href="/signin"
-          className=" w-full flex items-center justify-center rounded-full p-3 text-[1.2rem] hover:-translate-y-1 transition-all font-bold bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black"
+          className=" h-[3.5rem] w-full flex items-center justify-center rounded-full text-[1.2rem] hover:-translate-y-1 transition-all font-bold bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black"
         >
           Get start
         </Link>
       </div>
-      <p className=" sm:pl-40 sm:text-[1rem] sm:place-content-end sm:[grid-area:des] opacity-50 w-full text-[0.7rem] leading-tight">
+      <p className=" sm:pl-40 sm:text-[1rem] sm:place-content-end sm:[grid-area:des] opacity-50 w-full text-[0.7rem] leading-tight lg:text-[1.1rem]">
         {`แพล็ตฟอร์มแลกของมือสองออนไลน์ ของบางชิ้นที่เราไม่ใช้และกำลังมองหาอะไรบางอย่างแต่ไม่อยากเสียเงินซื้อ จากประชากรหลาย 10,000 คน อาจมีบางคนต้องการมันอยู่ก็ได้นะ ประกาศให้คนอื่นได้รู้ว่าเรามีอะไรและต้องการอะไร คู่แมตช์ของคุณอาจจะกำลังรอคุณอยู่ก็เป็นได้`}
       </p>
     </div>

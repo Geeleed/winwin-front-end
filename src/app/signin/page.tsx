@@ -45,9 +45,12 @@ function Signin() {
   };
   return (
     <div className=" absolute w-full h-full bg-black grid grid-cols-1 sm:grid-cols-2 place-content-center place-items-center">
-      <h1 className=" absolute top-0 left-0 hidden sm:inline-block sm:p-5 bg-gradient-to-r from-[#a8fe38] to-[#edff08] text-transparent bg-clip-text font-extrabold text-[2rem] animate-gradient leading-none">
+      <Link
+        href="/"
+        className=" absolute top-0 left-0 hidden sm:inline-block sm:p-5 bg-gradient-to-r from-[#a8fe38] to-[#edff08] text-transparent bg-clip-text font-extrabold text-[2rem] animate-gradient leading-none"
+      >
         WINWIN
-      </h1>
+      </Link>
       <aside className=" size-[17rem] sm:size-[35rem]">
         <Image src="/image/cube.png" height={600} width={600} alt="" />
       </aside>
