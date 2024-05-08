@@ -146,7 +146,7 @@ function EditItemData({ myItemId }: { myItemId: string }) {
               />
             </div>
 
-            <br />
+            {/* <br />
             <div className=" grid grid-cols-[1fr_2fr] gap-3 place-items-center ">
               <label>วิธีจัดส่ง</label>
               <select
@@ -162,7 +162,7 @@ function EditItemData({ myItemId }: { myItemId: string }) {
                   ส่งผ่าน platform
                 </option>
               </select>
-            </div>
+            </div> */}
             <input
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1 my-3 col-span-2"
               type="submit"
