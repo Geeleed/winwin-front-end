@@ -40,7 +40,8 @@ export default function CardExItemId({
       </div>
       <div className=" h-1/4 grid grid-cols-4 grid-rows-5 gap-1 p-2 pt-0">
         <div className=" col-span-4 text-[1.3rem] w-full flex justify-between items-center bg-[#ffffff08]">
-          <p className=" text-[0.7rem] text-[#ffffffaa]">{"หมดอายุ: " + exp}</p>
+          {/* <p className=" text-[0.7rem] text-[#ffffffaa]">{"หมดอายุ: " + exp}</p> */}
+          <p></p>
           {idt.sending === "safePosting" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
