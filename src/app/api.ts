@@ -3,7 +3,7 @@ const ip_prod = process.env.backend_server_ip;
 const port_dev = process.env.NEXT_PUBLIC_backend_server_port;
 const port_prod = process.env.backend_server_port;
 
-const origin = `http://${ip_dev || ip_prod}:${port_dev || port_prod}`;
+const origin = `${ip_dev || ip_prod}:${port_dev || port_prod}`;
 export default {
   signup: origin + "/users/signup",
   signin: origin + "/users/signin",
