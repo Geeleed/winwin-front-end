@@ -47,7 +47,6 @@ function Upload() {
       .then((res) => res.json())
       .then((res) => {
         if (res.isOk) {
-          alert(res.message);
           router.push("/me");
         }
       });
@@ -65,7 +64,7 @@ function Upload() {
           <br />
           <form onSubmit={handleSubmit}>
             <div className=" flex flex-col">
-              <label>เลือกรูปภาพ ไม่เกิน 3 ภาพ</label>
+              <label>{"เลือกรูปภาพ 1:1 ไม่เกิน 3 ภาพ"}</label>
               <input
                 type="file"
                 onChange={(e) => {
