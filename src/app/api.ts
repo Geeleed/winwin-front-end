@@ -1,6 +1,6 @@
 const origin_dev = process.env.NEXT_PUBLIC_backend_server_origin;
 const origin_prod = process.env.backend_server_origin;
-const origin = `${origin_dev || origin_prod}`;
+const origin = origin_dev || origin_prod;
 export default {
   signup: origin + "/users/signup",
   signin: origin + "/users/signin",
