@@ -26,9 +26,8 @@ function Forgot() {
       .then((res) => res.json())
       .then((res) => {
         setQuestion(res.data.question);
-        console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
   const handleSubmit2: EventHandler<React.FormEvent> = async (e) => {
     e.preventDefault();

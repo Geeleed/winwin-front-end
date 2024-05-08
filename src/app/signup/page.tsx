@@ -28,7 +28,6 @@ function Signup() {
   const router = useRouter();
   const handleSubmit: EventHandler<React.FormEvent> = async (e) => {
     e.preventDefault();
-    console.log(`Submitted with ${firstname} and ${lastname}`);
     const formData = new FormData();
     formData.append("firstname", firstname);
     formData.append("lastname", lastname);
@@ -48,7 +47,6 @@ function Signup() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.token);
       })
       .then((res) => {

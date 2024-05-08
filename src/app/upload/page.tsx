@@ -69,7 +69,6 @@ function Upload() {
                 type="file"
                 onChange={(e) => {
                   setFiles(e.target.files);
-                  console.log(e.target.files);
                 }}
                 multiple
                 required
