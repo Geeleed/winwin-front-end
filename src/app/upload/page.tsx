@@ -16,6 +16,7 @@ export default function Page() {
 
 function Upload() {
   const router = useRouter();
+  const [uploading, setUploading] = useState("ยืนยันอัปโหลด");
   const [files, setFiles] = useState<any>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -151,9 +152,15 @@ function Upload() {
               </select>
             </div> */}
             <input
-              className="flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1 my-3 col-span-2"
+              className={
+                "flex items-center justify-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] animate-gradient text-black p-2 text-[1.2rem] font-semibold rounded-full cursor-pointer hover:-translate-y-1 my-3 col-span-2" +
+                (uploading === "กำลังอัปโหลด..." && "animate-pulse")
+              }
               type="submit"
-              value="ยืนยันอัปโหลด"
+              value={uploading}
+              onClick={() => {
+                setUploading("กำลังอัปโหลด...");
+              }}
             />
           </form>
         </div>
