@@ -11,9 +11,10 @@ export default function Root() {
           width={500}
           alt=""
           className=" rounded-full drop-shadow-[20px_20px_100px_#a8fe3888,-20px_-20px_100px_#edff0888] w-[15rem] sm:w-1/2 aspect-square"
+          loading="lazy"
         />
       </div>
-      <h1 className=" portrait:lg:translate-x-20 sm:[grid-area:head] sm:place-content-end text-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] inline-block text-transparent bg-clip-text font-extrabold text-[3rem] sm:text-[10rem] lg:text-[5rem] animate-gradient leading-none">
+      <h1 className=" portrait:lg:translate-x-20 min-[1280px]:text-[5rem] sm:[grid-area:head] sm:place-content-end text-center w-full bg-gradient-to-r from-[#a8fe38] to-[#edff08] inline-block text-transparent bg-clip-text font-extrabold text-[3rem] sm:text-[5rem] min-[1920px]:text-[10rem] animate-gradient leading-none">
         WINWIN
       </h1>
       <div className=" sm:pl-40 sm:[grid-area:btn] sm:w-[30rem] sm:h-fit my-5 flex flex-wrap w-full">
