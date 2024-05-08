@@ -1,8 +1,4 @@
-// const { NEXT_PUBLIC_backend_server_ip, NEXT_PUBLIC_backend_server_port } =
-//   process.env;
-// console.log(process.env);
-// const origin = `http://${NEXT_PUBLIC_backend_server_ip}:${NEXT_PUBLIC_backend_server_port}`;
-const origin = `http://192.168.45.207:8000`;
+const origin = `http://${process.env.NEXT_PUBLIC_backend_server_ip}:${process.env.NEXT_PUBLIC_backend_server_port}`;
 export default {
   signup: origin + "/users/signup",
   signin: origin + "/users/signin",
